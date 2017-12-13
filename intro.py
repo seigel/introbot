@@ -31,9 +31,10 @@ def write_introduction(people, message):
 
 
 if __name__ == '__main__':
-    parser = OptionParser()
-    parser.add_option("-a", "--add", dest="add", action="store_true")
-    parser.add_option("-m", "--message", dest="message", default=False, action="store")
+    usage = "usage: %prog [options] arg1 arg2 [arg3]"
+    parser = OptionParser(usage=usage)
+    parser.add_option("-a", "--add", dest="add", action="store_true", help="arg1 is a nick name, arg2 is their name, arg3 is a description of that person")
+    parser.add_option("-m", "--message", dest="message", default=False, action="store", help="Introduce arg1 to arg2, where arg1 and arg2 are the nick names of those people")
     (options, args) = parser.parse_args()
 
     if options.add: # we're adding a new person
